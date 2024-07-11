@@ -1,0 +1,300 @@
+/* CSS file to style the adding and editing a vacation forms: */
+
+.vacation-form{
+    height: calc(100% - 140px);
+    transform: translateY(14px);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100vw;
+}
+
+.vacation-form form{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    width: 45%;
+    height: 100%;
+    background-color: transparent;
+    backdrop-filter: blur(8px);
+    border-radius: 42px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
+.vacation-form form:hover{
+    backdrop-filter: blur(15px);
+}
+
+.form-vacation-error{
+    color: rgb(142, 9, 9);
+    font-weight: 700;
+    font-size: 1.5rem;
+    backdrop-filter: brightness(20%);
+    text-shadow:
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+}
+
+.form-first-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    height: 8%;
+}
+
+.select-country-container{
+    width: 40%;
+}
+
+.select-country-container select{
+    height: 100%;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.price-container{
+    height: 100%;
+    width: 40%;
+}
+
+.price-container input{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.price-container input:focus{
+    cursor: auto;
+}
+
+.dates-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 14%;
+}
+
+.dates-container label,
+.select-country-container label,
+.price-container label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+    text-shadow:
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+    cursor: pointer;
+}
+
+.dates-container input{
+    width: 100%;
+    cursor: pointer;
+}
+
+.start-date-container,
+.end-date-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    width: 40%;
+}
+
+.description-container{
+    display: flex;
+    width: 80%;
+    height: 26%;
+    margin-top: 5px;
+}
+
+.description-container textarea{
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #333;
+    font-weight: 400;
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.description-container textarea:focus{
+    box-shadow: inset 0px 5px 5px;
+    cursor: auto;
+}
+
+.upload-image-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    justify-content: center;
+    width: 100%;
+    height: 18%;
+}
+
+.upload-image-container label{
+    display: flex;
+    font-weight: 600;
+    width: 80%;
+    color: white;
+    text-shadow:
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+    cursor: pointer;
+}
+
+#fileInput{
+    margin-top: 10px;
+    width: 80%;
+    cursor: pointer;
+}
+
+#fileInput::-webkit-file-upload-button{
+    margin-right: 20px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #4c7980;
+    color: #f0f0f0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+#fileInput::-webkit-file-upload-button:hover{
+    background-color: #75999d;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.form-buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 12%;
+    width: 80%;
+}
+
+.form-buttons *{
+    padding: 10px;
+    font-weight: 700;
+    border-radius: 8px;
+    border: none;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-buttons a{
+    color: white;
+    background-color: #333;
+    overflow: hidden;
+    font-size: 20px;
+    width: 17%;
+}
+
+.form-buttons a:hover{
+    background-color: #464646;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.submit-vacation-button{
+    width: 60%;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 3px;
+    word-spacing: 5px;
+    background-color: #fcd1a3;
+    overflow: hidden;
+}
+
+.submit-vacation-button:hover{
+    background-color: #fce4c1;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.image-preview{
+    width: 45%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 42px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.image-preview img{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    object-fit: cover;
+    border-radius: 42px;
+    transition: all 1.2s ease;
+}
+
+.image-preview:hover img{
+    transform: scale(1.02);
+}
+
+.image-preview h1{
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    color: white;
+    text-shadow:
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+}
+
+.update-image-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: brightness(50%);
+    color: white;
+    font-weight: 500;
+    text-decoration: underline;
+    font-size: 18px;
+    border-radius: 42px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.update-image-container label{
+    cursor: pointer;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hidden-upload-button{
+    display: none;
+}

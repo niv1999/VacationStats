@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Paradise Vacations | Edit Vacation #{{vacation.vacation_id}}
+{% endblock title %}
+
+{% block content %}
+
+<div class="vacation-form">
+
+    <form method="post" enctype="multipart/form-data" onsubmit="return validateEdit()">
+
+        <div class="form-vacation-error" style="display: {% if error %}block{% else %}none{% endif %};">
+            <span id="errorMessage">{{error}}</span>
+        </div>
+
+        <input type="hidden" name="vacation_id" value="{{vacation.vacation_id}}">
+
+        <div class="form-first-row">
+            <div class="select-country-container">
+                <label for="countryIdEdit">Select Country:</label>
+                <select name="country_id" id="countryIdEdit" required>
+                    {% for country in countries %}
+                        <option value="{{country.country_id}}" {% if country.country_id == vacation.country_id %}selected{% endif %}>{{country.country_name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="price-container">
+                <label for="priceEdit">Price:</label>
+                <input type="number" step="0.01" name="price" id="priceEdit" placeholder="Input price $" value="{{vacation.price}}" required min="0" max="10000">
+            </div>
+        </div>
+
+        <div class="dates-container">
+            <div class="start-date-container">
+                <label for="startDateEdit">Start Date:</label>
+                <input type="date" name="start_date" id="startDateEdit" value="{{vacation.start_date}}" required>
+            </div>
+            <div class="end-date-container">
+                <label for="endDateEdit">End Date:</label>
+                <input type="date" name="end_date" id="endDateEdit" value="{{vacation.end_date}}" required>
+            </div>
+        </div>
+
+        <div class="description-container">
+            <textarea name="description" placeholder="Add vacation description here..." required minlength="10" maxlength="400">{{vacation.description}}</textarea>
+        </div>
+
+        <div class="hidden-upload-button">
+            <input type="file" name="image" id="fileInput" accept="image/*" onchange="previewImage()">
+        </div>
+
+        <div class="form-buttons">
+            <a href="{{ url_for('home_view.home') }}" onclick="confirmBack()">Back</a>
+            <a href="{{ url_for('home_view.delete', id=vacation.vacation_id) }}" onclick="confirmDelete(event)">Delete</a>
+            <button type="submit" class="submit-vacation-button">UPDATE VACATION</button>
+        </div>
+
+    </form>
+
+    <div class="image-preview">
+        <img src="{{ url_for('home_view.get_image', image_name = (vacation.image_name if vacation.image_name else '---')) }}" id="imagePreview">
+        <h1>Image Preview:</h1>
+        <div class="update-image-container">
+            <label for="fileInput">UPDATE YOUR VACATION IMAGE</label>
+        </div>
+    </div>
+    
+</div>
+
+{% endblock content %}

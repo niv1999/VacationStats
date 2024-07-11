@@ -1,0 +1,13 @@
+.Copyrights {
+    border-top-right-radius: 800px;
+    border-top-left-radius: 800px;
+    box-shadow: rgb(0 0 0 / 50%) 0px -6px 6px -6px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #3f3d56;
+    color: #e0e9e0;
+}

@@ -1,0 +1,16 @@
+.Stats {
+    width: 70%;
+    height: 100%;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.allStatsHeader {
+    text-decoration: underline;
+    text-shadow: 
+        0.1vw 0.1vw 0.05vw #3f3d56, 
+        0.2vw 0.2vw 0.1vw #3f3d56, 
+        0.3vw 0.3vw 0.15vw #3f3d56;
+}

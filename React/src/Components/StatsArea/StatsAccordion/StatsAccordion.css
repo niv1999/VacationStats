@@ -1,0 +1,27 @@
+.accordionFooter {
+    border-top: 2px solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3f3d56;
+    padding-left: 16px;
+    padding-right: 16px;
+    height: 60px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-top: 16px;
+}
+
+.totalUsers,
+.totalLikes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10%;
+}
+
+.usersIcon,
+.likesIcon {
+    height: 3.2rem;
+}

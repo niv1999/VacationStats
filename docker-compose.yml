@@ -1,0 +1,71 @@
+services:
+# ---------------------------------------------------------------
+  database-service:
+    image: niv1999/vacations-database-image:1.0
+    build: ./Database
+    container_name: vacations-database-container
+    volumes:
+      - vacations-volume:/var/lib/mysql
+    environment:
+      MYSQL_HOST: localhost
+      MYSQL_USER: Niv
+      MYSQL_PASSWORD: Shteingart
+      MYSQL_DATABASE: vacations
+      MYSQL_ROOT_PASSWORD: Shteingart
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 24
+# ---------------------------------------------------------------
+  django-service:
+    depends_on:
+      database-service:
+        condition: service_healthy
+    image: niv1999/vacations-django-image:1.0
+    build: ./Django
+    container_name: vacations-django-container
+    environment:
+      MYSQL_HOST: database-service
+      MYSQL_USER: Niv
+      MYSQL_PASSWORD: Shteingart
+      MYSQL_DATABASE: vacations
+      JWT_SECRET_KEY: The person who reads this must give me an A+
+      PASSWORDS_SALT: pretty please
+    restart: unless-stopped
+    ports:
+      - 8000:8000
+# ---------------------------------------------------------------
+  react-service:
+    depends_on:
+      - django-service
+    image: niv1999/vacations-react-image:1.0
+    build: ./React
+    container_name: vacations-react-container
+    restart: unless-stopped
+    ports:
+      - 80:3000
+# ---------------------------------------------------------------
+  flask-service:
+    depends_on:
+      database-service:
+        condition: service_healthy
+    image: niv1999/vacations-flask-image:1.0
+    build: ./Flask
+    container_name: vacations-flask-container
+    environment:
+      MYSQL_HOST: database-service
+      MYSQL_USER: Niv
+      MYSQL_PASSWORD: Shteingart
+      MYSQL_DATABASE: vacations
+    restart: unless-stopped
+    volumes:
+      - images-volume:/app/src/static/images/vacations
+    ports:
+      - 5000:5000
+# ---------------------------------------------------------------
+
+volumes:
+  vacations-volume:
+  images-volume:

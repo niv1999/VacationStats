@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap');
+
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    font-size: 100%;
+}
+
+/* Change the width of the scrollbar track */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Change the color of the scrollbar handle */
+::-webkit-scrollbar-thumb {
+    background-color: #3f3d56;
+    border-radius: 6px;
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 90%; /* Decrease base font size for smaller screens */
+    }
+}

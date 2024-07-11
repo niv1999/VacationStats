@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Paradise Vacations | Add New Vacation
+{% endblock title %}
+
+{% block content %}
+
+<div class="vacation-form">
+
+    <form method="post" enctype="multipart/form-data" onsubmit="return validateInsert()">
+
+        <div class="form-vacation-error" style="display: {% if error %}block{% else %}none{% endif %};">
+            <span id=errorMessage>{{error}}</span>
+        </div>
+
+        <div class="form-first-row">
+            <div class="select-country-container">
+                <select name="country_id" required>
+                    <option value="0" disabled selected>Select Country</option>
+                    {% for country in countries%}
+                        <option value="{{country.country_id}}">{{country.country_name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="price-container">
+                <input type="number" step="0.01" name="price" placeholder="Input price $" required min="0" max="10000">
+            </div>
+        </div>
+
+        <div class="dates-container">
+            <div class="start-date-container">
+                <label for="startDateAdd">Start Date:</label>
+                <input type="date" name="start_date" id="startDateAdd" required>
+            </div>
+            <div class="end-date-container">
+                <label for="endDateAdd">End Date:</label>
+                <input type="date" name="end_date" id="endDateAdd" required>
+            </div>
+        </div>
+
+        <div class="description-container">
+            <textarea name="description" placeholder="Add vacation description here..." required minlength="10" maxlength="400"></textarea>
+        </div>
+
+        <div class="upload-image-container">
+            <label for="image" class="abc">Upload your vacation image:</label>
+            <input type="file" name="image" id="fileInput" accept="image/*" onchange="previewImage()" required>
+        </div>
+
+        <div class="form-buttons">
+            <a href="{{ url_for('home_view.home') }}" onclick="confirmBack(event)">Back</a>
+            <a href="{{ url_for('home_view.insert') }}" onclick="confirmClear(event)">Clear</a>
+            <button type="submit" class="submit-vacation-button">ADD VACATION</button>      
+        </div>
+
+    </form>
+
+    <div class="image-preview">
+        <img src="{{ url_for('home_view.get_image', image_name = 'no-image.jpg') }}" id="imagePreview">
+        <h1>Image Preview:</h1>
+    </div>
+
+</div>
+
+{% endblock content %}

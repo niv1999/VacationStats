@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Paradise Vacations | 500 UNKNOWN ERROR
+{% endblock title %}
+
+{% block content %}
+
+<div class="container-error-page">
+    <h3>ERROR</h3>
+    <h1>500</h1>
+    <h3>Some Error Ocurred! Go
+        {% if current_user %}
+        <a href="{{ url_for('home_view.home') }}">Back</a>
+        {% else %}
+        <a href="{{ url_for('auth_view.register') }}">Back</a>
+        {% endif %}
+    </h3>
+</div>
+
+{% endblock content %}

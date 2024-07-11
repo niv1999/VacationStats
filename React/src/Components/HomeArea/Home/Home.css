@@ -1,0 +1,18 @@
+.Home {
+	width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.homeCard {
+    width: 400px;
+    margin: 10px;
+    transition: opacity 0.6s ease;
+}
+
+.Home:has(.homeCard:hover) > .homeCard:not(:hover) {
+    opacity: 0.4;
+}

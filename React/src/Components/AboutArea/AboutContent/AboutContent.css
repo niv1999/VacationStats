@@ -1,0 +1,11 @@
+.AboutContent {
+    text-align: left;
+    color: #3f3d56;
+    padding: 0 20px 0 20px;
+    position: relative;
+}
+
+.AboutContent p {
+    font-weight: 500;
+    margin-top: 20px;
+}

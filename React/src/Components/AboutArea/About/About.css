@@ -1,0 +1,54 @@
+.About {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        "blob content content content";
+    gap: 20px;
+    margin: 30px;
+    height: 95%;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .About {
+        grid-template-rows: 100% auto;
+        grid-template-columns: 1fr;
+        grid-template-areas: "blob" "content";
+    }
+}
+
+.blob {
+    max-width: 400px;
+    height: 100%;
+    background-image: url("../../../Assets/Images/profile_pic.jpg");
+    background-size: cover;
+    -webkit-background-position: center;
+    background-position: center center;
+    box-shadow: 0 5px 5px 5px rgba(63, 61, 86, 0.8);
+    animation: animate 5s ease-in-out infinite;
+    transition: all 1s ease-in-out;
+    grid-area: blob;
+}
+
+@keyframes animate {
+
+    0%,
+    100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+
+    50% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+}
+
+.aboutContent {
+    grid-area: content;
+}
+
+.links{
+    grid-area: links;
+    display: flex;
+    justify-content: center;
+}

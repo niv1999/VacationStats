@@ -1,0 +1,27 @@
+.Layout {
+    height: 100%;
+	background-image: url("../../../Assets/Images/layered-waves-haikei\ \(2\).svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: grid;
+    grid-template-rows: 14% 9% 72% 5%;
+}
+
+nav {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-height: 30px;
+    z-index: 2;
+}
+
+main {
+    padding-top: 10px;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+

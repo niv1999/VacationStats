@@ -1,0 +1,44 @@
+.Header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #3f3d56;
+    font-size: clamp(14px, 2.5vw, 35px);
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 13%;
+    width: 100%;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+.mainHeader{
+    text-decoration: none;
+    margin-left: 2%;
+    color: #e0e9e0;
+}
+
+.Header > .authContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 2%;
+    height: 14%;
+    width: clamp(180px, 28vw, 350px);
+}
+
+.greeting {
+    font-size: clamp(16px, 2.1vw, 22px);
+    color: #e0e9e0;
+    width: 350px;
+    margin-right: 10px;
+    padding-right: 6px;
+    padding-left: 6px;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

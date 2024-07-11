@@ -1,0 +1,248 @@
+/* CSS file to style the home page with all the vacations: */
+
+.vacations-grid{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding-top: 150px;
+    padding-bottom: 50px;
+    scroll-snap-type: y mandatory;
+}
+
+.error-container{
+    width: 100%;
+    height: 180px;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: end;;
+    font-size: 30px;
+    color: rgb(142, 9, 9);
+    font-weight: 700;
+    overflow: hidden;
+}
+
+.error-container span{
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding-top: 20px;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.vacation-card{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 420px;
+    width: 400px;
+    margin: 30px;
+    border-radius: 12px;
+    position: relative;
+    scroll-snap-align: center;
+    transition: all 0.2s ease-in;
+    box-shadow: rgba(0, 0, 0, 0.64) 0px 3px 8px;
+}
+
+.vacation-card:hover{
+    box-shadow: rgba(0, 0, 0, 0.85) 0px 5px 15px;
+    cursor: pointer;
+}
+
+.vacation-img{
+    width: 400px;
+    height: 200px;
+    object-fit: cover;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    transition: all 0.3s ease-in;
+}
+
+.vacation-img-container{
+    position: relative;
+    overflow: hidden;
+}
+
+.vacation-img-container:hover .vacation-img{
+    transform: scale(1.03);
+}
+
+.country-name{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-transform: uppercase;
+    color: #f0f0f0;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 20px;
+    background-color: transparent;
+    backdrop-filter: brightness(50%);
+    padding: 8px;
+    padding-left: 12px;
+    padding-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.country-name:hover{
+    transform: translateY(-8px);
+}
+
+.vacation-dates{
+    position: absolute;
+    bottom: 8px;
+    height: 54%;
+    text-align: left;
+    font-weight: 500;
+    padding-left: 12px;
+    padding-top: 5px;
+    width: 100%;
+    border-radius: 12px;
+    background-image: linear-gradient(40deg, #769b9e, #4b7a81, #447079, #1c3746);
+    transition: all 0.3s ease;
+    color: #f0f0f0;
+    letter-spacing: 1px;
+}
+
+.vacation-dates:hover{
+    transform: translateY(-8px)
+}
+
+.vacation-description{
+    position: absolute;
+    bottom: 0;
+    height: 47%;
+    width: 100%;
+    background-image: linear-gradient(to bottom, #fce4c1, #fcd1a3, #fbbd91, #c97d5c);
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.vacation-price{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-bottom: 4px;
+    padding-left: 12px;
+    padding-top: 4px;
+    padding-right: 12px;
+    border-bottom-left-radius: 12px;
+    border-top-right-radius: 12px;
+    backdrop-filter: brightness(80%);
+}
+
+.plane-icon{
+    position: absolute;
+    bottom: -6px;
+    right: 1px;
+}
+
+.plane-link img{
+    width: 80px;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+}
+
+.vacation-card:hover .plane-link img{
+    opacity: 1;
+    scale: 1.05;
+}
+
+.likes{
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    background-color: #f0f0f0;
+    opacity: 0.7;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.likes:hover{
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+    opacity: 1;
+}
+
+.liked{
+    background-color: #d80303;
+    color: white;
+    image-rendering: crisp-edges;
+}
+
+.liked img{
+    filter: invert(100%) drop-shadow(0 0 8px white);
+}
+
+.admin-buttons{
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.admin-buttons a{
+    color: black;
+    text-decoration: none;
+    margin-right: 10px;
+    background-color: #f0f0f0;
+    padding: 8px;
+    border-radius: 10px;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+    width: 90px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.admin-buttons a:hover{
+    opacity: 1;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.new-vacation-box{
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    position: relative;
+}
+
+.new-vacation-box h1{
+    color: #f0f0f0;
+    font-size: 55px;
+    font-weight: 700;
+    padding-bottom: 120px;
+    position: absolute;
+    top: 30px;
+    text-shadow: -3px 3px 3px black;
+}
+
+.new-vacation-box img{
+    width: 130px;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+}
+
+.new-vacation-box:hover img{
+    opacity: 1;
+    scale: 1.05;
+}
+

@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Paradise Vacations | Home Page
+{% endblock title %}
+
+{% block content %}
+
+<div class="sort-container">
+    {% include "sort.html" %}
+</div>
+
+<div class="vacations-grid">
+
+    {% if error %}
+    <div class="error-container" id="errorContainer">
+        <span>{{error}}</span>
+    </div>
+    {% endif %}
+
+    {% for v in vacations %}
+        <div class="vacation-card">
+
+            <div class="vacation-img-container">
+                <img class="vacation-img" src="{{ url_for('home_view.get_image', image_name = (v.image_name if v.image_name else '---')) }}">
+                <div class="likes" data-vacation-id = "{{v.vacation_id}}" onclick="changeLikeStatus(this)">
+                    <img src="../static/images/icons/icons8-heart-24.png">
+                    <span>{{v.likes}}</span>
+                </div>
+                <div class="country-name">
+                    {{v.country_name}}
+                </div>
+            </div>
+
+            <div class="vacation-dates">
+                <span>{{v.start_date.day}}.{{v.start_date.month}}.{{v.start_date.year}} - {{v.end_date.day}}.{{v.end_date.month}}.{{v.start_date.year}}</span>
+            </div>
+
+            <div class="vacation-description">
+                {{v.description}}
+            </div>
+
+            <div class="vacation-price">
+                <span>${{v.price}}</span>
+            </div>
+
+            <div class="plane-icon">
+                <a class="plane-link" href="#">
+                    <img src="../static/images/icons/airplane-icon.png">
+                </a>
+            </div>
+
+        </div>         
+    {% endfor %}
+    
+</div>
+
+{% endblock content %}

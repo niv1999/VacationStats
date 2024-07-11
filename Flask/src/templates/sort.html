@@ -1,0 +1,79 @@
+<!-- This is all inside a container called sort-container -->
+
+<div class="sort-left-section">
+    <span>Sort By:</span>
+</div>
+
+<div class="sort-middle-section">
+
+    <form id="sortForm" method="post">
+
+        <div class="radio-input">
+            
+            <label>
+                <input value="start_date" name="sort_by" type="radio" {% if sort_parameter == 'start_date' %}checked{% endif %}>
+                <span>Date</span>
+                <span>
+                    <img src="../static/images/icons/start-to-end-black.png">
+                </span>
+            </label>
+
+            <label>
+                <input value="start_date_reversed" name="sort_by" type="radio" {% if sort_parameter == 'start_date_reversed' %}checked{% endif %}>
+                <span>Date</span>
+                <span>
+                    <img src="../static/images/icons/end-to-start-black.png">
+                </span>
+            </label>
+
+            <label>
+                <input value="price" name="sort_by" type="radio" {% if sort_parameter == 'price' %}checked{% endif %}>
+                <span>Price</span>
+                <span>
+                    <img class="money-asc-img" src="../static/images/icons/money-ascending-black.png">
+                </span>
+            </label>
+
+            <label>
+                <input value="price_reversed" name="sort_by" type="radio" {% if sort_parameter == 'price_reversed' %}checked{% endif %}>
+                <span>Price</span>
+                <span>
+                    <img class="money-desc-img" src="../static/images/icons/money-descending-black.png">
+                </span>
+            </label>
+
+            <label>
+                <input value="country_id" name="sort_by" type="radio" {% if sort_parameter == 'country_id' %}checked{% endif %}>
+                <span>Country</span>
+                <span>
+                    <img src="../static/images/icons/a-to-z-black.png">
+                </span>
+            </label>
+
+            <label>
+                <input value="country_id_reversed" name="sort_by" type="radio" {% if sort_parameter == 'country_id_reversed' %}checked{% endif %}>
+                <span>Country</span>
+                <span>
+                    <img src="../static/images/icons/z-to-a-black.png">
+                </span>
+            </label>
+
+            <label>
+                <input value="likes_reversed" name="sort_by" type="radio" {% if sort_parameter == 'likes_reversed' %}checked{% endif %}>
+                <span>Likes</span>
+                <span>
+                    <img src="../static/images/icons/heart-black.png">
+                </span>
+            </label>
+
+            <span class="selection"></span>
+
+        </div>
+
+    </form>
+
+</div>
+
+<div class="sort-right-section">
+    <button type="submit" form="sortForm">SORT</button>
+</div>

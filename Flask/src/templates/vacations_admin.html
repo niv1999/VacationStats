@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Paradise Vacations | Home Page (Admin)
+{% endblock title %}
+
+{% block content %}
+
+<div class="sort-container">
+    {% include "sort.html" %}
+</div>
+
+<div class="vacations-grid">
+
+    {% if error %}
+    <div class="error-container" id="errorContainer">
+        <span>{{error}}</span>
+    </div>
+    {% endif %}
+
+    <a href="{{ url_for('home_view.insert') }}">
+        <div class="vacation-card new-vacation-box">
+            <h1>New Vacation</h1>
+            <img src="../static/images/icons/icons8-add-100.png">
+        </div>
+    </a>
+
+    {% for v in vacations %}
+        <div class="vacation-card">
+
+            <div class="vacation-img-container">
+                <img class="vacation-img" src="{{ url_for('home_view.get_image', image_name = (v.image_name if v.image_name else '---')) }}">
+                <div class="admin-buttons">
+                    <a href="{{ url_for('home_view.edit', id=v.vacation_id) }}" class="edit-button">
+                        <img src="../static/images/icons/icons8-edit-24.png"> Edit
+                    </a>
+                    <a href="{{ url_for('home_view.delete', id=v.vacation_id) }}" onclick="confirmDelete(event)" class="delete-button">
+                        <img src="../static/images/icons/icons8-delete-24.png"> Delete
+                    </a>
+                </div>
+                <div class="country-name">
+                    {{v.country_name}}
+                </div>
+            </div>
+            
+            <div class="vacation-dates">
+                <span>{{v.start_date.day}}.{{v.start_date.month}}.{{v.start_date.year}} - {{v.end_date.day}}.{{v.end_date.month}}.{{v.start_date.year}}</span>
+            </div>
+
+            <div class="vacation-description">
+                {{v.description}}
+            </div>
+
+            <div class="vacation-price">
+                <span>${{v.price}}</span>
+            </div>
+
+            <div class="plane-icon">
+                <a class="plane-link" href="#">
+                    <img src="../static/images/icons/airplane-icon.png">
+                </a>
+            </div>
+
+        </div>         
+    {% endfor %}
+    
+</div>
+
+{% endblock content %}
