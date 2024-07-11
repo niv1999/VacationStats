@@ -1,0 +1,4 @@
+/Flask/.env
+/Flask/logger.log
+/Flask/src/__pycache__
+/Django/.env
